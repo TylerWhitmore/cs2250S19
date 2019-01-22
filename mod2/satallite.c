@@ -33,10 +33,9 @@ int main()
     printf("Enter the period in seconds: \n");
     scanf("%lf",&period);
     //formula: height=((Gravity*MassOfEarth*Time^2)/4pi^2)^1/3 -RadiusOfEarth
-    double top = GRAVITY*MASSEARTH*pow(period,2);
-    double bottom = 4*pow(PI,2);
-    height = pow(top/bottom,(1/3));
-    height = height-RADIUSEARTH;
+    height = 
+        cbrt((GRAVITY * MASSEARTH * pow(period,2))/(4*pow(PI,2)))-RADIUSEARTH;
+
     //Display result
     printf("The height after %0.2lf seconds is: %0.2lf meters\n",period,height);
     return 0;
