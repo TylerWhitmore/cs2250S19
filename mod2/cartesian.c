@@ -17,25 +17,33 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
+#include <math.h>
 // Constants
-const double pi = 3.1415;
+const double PI = 3.1415926;
 // Function Prototypes
 
 // Main Function
 int main()
 {
-    double radius;
-    double theta;
+    double radius = 0.0;
+    double theta = 0.0;
+    double radians = 0.0;
+    double x = 0.0;
+    double y = 0.0;
     //1) capture user input for radius and theta(degrees)
     printf("Enter the radius: ");
     scanf("%lf",&radius);
     printf("Enter the angle theta in degrees: ");
     scanf("%lf",&theta);
     //2) convert theta to radians
-    theta = theta*(pi/180);
+    radians = theta*(PI/180);
     //3) calculate cartesian coordinates
+    //=(a+rcos(theta),b+rsin(theta))
+    x = radius*(cos(radians));
+    y = radius*(sin(radians));
     //4) print result
+    printf("With radius: %0.2lf\nAnd theta angle: %0.2lf\n",radius,theta);
+    printf("Coordinates are: (%0.2lf,%0.2lf)\n",x,y);
     return 0;
 }
 // Function Definitions
