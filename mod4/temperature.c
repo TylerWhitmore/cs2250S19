@@ -22,6 +22,10 @@
 //const int FAHRENHEIT = 1;
 #define CELSIUS 0
 #define FAHRENHEIT 1
+#define BoilC 100
+#define FreezeC 0
+#define BoilF 212
+#define FreezeF 32
 // Function Prototypes
 
 // Main Function
@@ -54,14 +58,30 @@ int main()
         printf("Sorry, you did not enter a 0 or 1\n");
         return 0;
     }
-    /*
-    //use %f to capture float info
-    //use %lf to capture double info
-    scanf("%f",&temp);
-    double f_temp = 0;
-    f_temp = (temp * 9/5)+32;
-    printf("I see, your temp is %0.2lf in F.\n",f_temp);
-    */
+    //task 2
+    //test for boiling point, freezing point, and liquid point of water
+    if(choice == CELSIUS){
+        if(in_temp >= BoilC){
+            printf("Your water is boiling\n");
+        }
+        else if(in_temp <= FreezeC){
+            printf("Your water is freezing\n");
+        }
+        else{
+            printf("Your water is liquid\n");
+        }
+    }
+    else if(choice == FAHRENHEIT){
+        if(in_temp >= BoilF){
+            printf("Your ater is boiling\n");
+        }
+        else if(in_temp <= FreezeF){
+            printf("Your water is freezing\n");
+        }
+        else{
+            printf("Your water is liquid\n");
+        }
+    }
     return 0;
 }
 // Function Definitions
