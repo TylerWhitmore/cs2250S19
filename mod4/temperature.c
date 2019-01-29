@@ -26,6 +26,9 @@
 #define FreezeC 0
 #define BoilF 212
 #define FreezeF 32
+#define Gas 2
+#define Liquid 1
+#define Solid 0
 // Function Prototypes
 
 // Main Function
@@ -34,6 +37,7 @@ int main()
     //float temp = 7.9; //Celsius
     double in_temp, out_temp;
     int choice;
+    int state;
     //1) Ask user which temperature mode they want to use
     printf("Welcome to the temperature calculator\n");
     printf("Please enter your choice:\n");
@@ -62,25 +66,36 @@ int main()
     //test for boiling point, freezing point, and liquid point of water
     if(choice == CELSIUS){
         if(in_temp >= BoilC){
-            printf("Your water is boiling\n");
+            state = Gas;
         }
         else if(in_temp <= FreezeC){
-            printf("Your water is freezing\n");
+            state = Solid;
         }
         else{
-            printf("Your water is liquid\n");
+            state = Liquid;
         }
     }
     else if(choice == FAHRENHEIT){
         if(in_temp >= BoilF){
-            printf("Your ater is boiling\n");
+            state = Gas;
         }
         else if(in_temp <= FreezeF){
-            printf("Your water is freezing\n");
+            state = Solid;
         }
         else{
-            printf("Your water is liquid\n");
+            state = Liquid;
         }
+    }
+    switch (state){
+        case Gas:
+            printf("Water is boiling\n");
+            break;
+        case Solid:
+            printf("Water is frozen\n");
+            break;
+        case Liquid:
+            printf("Water is liquid\n");
+            break;
     }
     return 0;
 }
